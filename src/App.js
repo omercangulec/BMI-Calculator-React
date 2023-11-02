@@ -53,7 +53,7 @@ function Form({ hegiht, weight, onHeight, onWeight, onCalculate }) {
         type="number"
         value={hegiht}
         onChange={onHeight}
-        placeholder="Kg"
+        placeholder="cm"
       />
 
       <label>Weight</label>
@@ -61,7 +61,7 @@ function Form({ hegiht, weight, onHeight, onWeight, onCalculate }) {
         type="number"
         value={weight}
         onChange={onWeight}
-        placeholder="cm"
+        placeholder="kg"
       />
 
       <button>Calculate</button>
