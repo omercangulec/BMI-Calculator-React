@@ -21,12 +21,15 @@ export default function App() {
 
   const onHeight = (e) => setHegiht(+e.target.value);
   const onWeight = (e) => setWeight(+e.target.value);
+  if (isNaN(hegiht)) setHegiht("");
+  if (isNaN(weight)) setWeight("");
 
   return (
     <div className="App">
       <Logo />
       <Form
         hegiht={hegiht}
+        setHegiht={setHegiht}
         weight={weight}
         onHeight={onHeight}
         onWeight={onWeight}
@@ -49,20 +52,10 @@ function Form({ hegiht, weight, onHeight, onWeight, onCalculate }) {
   return (
     <form className="form" onSubmit={onCalculate}>
       <label>Height</label>
-      <input
-        type="number"
-        value={hegiht}
-        onChange={onHeight}
-        placeholder="cm"
-      />
+      <input type="text" value={hegiht} onChange={onHeight} placeholder="cm" />
 
       <label>Weight</label>
-      <input
-        type="number"
-        value={weight}
-        onChange={onWeight}
-        placeholder="kg"
-      />
+      <input type="text" value={weight} onChange={onWeight} placeholder="kg" />
 
       <button>Calculate</button>
     </form>
@@ -70,7 +63,7 @@ function Form({ hegiht, weight, onHeight, onWeight, onCalculate }) {
 }
 
 function Result({ bmi, onReset }) {
-  const textColor = `${bmi > 25 ? "red" : bmi < 23 ? "green" : "orange"}`;
+  const textColor = `${bmi >= 25 ? "red" : bmi <= 24 ? "green" : "orange"}`;
 
   return (
     <div className="result">
