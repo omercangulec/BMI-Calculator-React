@@ -109,10 +109,6 @@ input:focus {
 }
 
 @media screen and (max-width: 32em) {
-  .App {
-    margin: 20rem;
-  }
-
   html {
     font-size: 80%;
   }
